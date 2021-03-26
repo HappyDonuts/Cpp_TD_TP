@@ -4,9 +4,10 @@
 class Vecteur {
 	protected:
 		int dim;
+		float* elements;
 		
 	public:	
-		float* elements;
+		
 		// Constructeur vide
 		Vecteur(void);
 		// Constructeur a dimension
@@ -15,6 +16,10 @@ class Vecteur {
 		Vecteur(int dim1, float val_init);
 		// Constructeur copie de vecteur
 		Vecteur(const Vecteur &vec);
+		
+		// Destructeur
+		virtual  ~Vecteur();
+
 		// Getter - retourne la dimension
 		int get_dim(void);
 		// Getter - retourne un element
@@ -24,6 +29,7 @@ class Vecteur {
 		// Setter - fixe un element dans le vecteur
 		void set_element(int index, float valeur);
 
+		// Operators
         Vecteur & operator= ( const Vecteur & operande1);  
         Vecteur & operator+= (const Vecteur & operande);  
         float & operator[] (const int i);

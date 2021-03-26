@@ -2,83 +2,95 @@
 #include "Vecteur.h"
 using namespace std;
 
-#define ERREUR_DIM 1
-#define ERREUR_INDICE 2
-
 Vecteur::Vecteur(void){
-        dim = 0;
+        this->dim = 0;
 }
 
 // Constructeur a dimension
-Vecteur::Vecteur(int dim1){
-    dim = dim1;
-    elements = new float[dim];
+Vecteur::Vecteur(const int dim1){
+    this->dim = dim1;
+    this->elements = new float[this->dim];
 }
 
 // Constructeur a dimension initialise
-Vecteur::Vecteur(int dim1, float val_init){
-    dim = dim1;
-    elements = new float[dim];
-    for (int i = 0; i<dim; i++){
-        elements[i] = val_init;
+Vecteur::Vecteur(const int dim1, const float val_init){
+    this->dim = dim1;
+    this->elements = new float[this->dim];
+    for (int i = 0; i<this->dim; i++){
+        this->elements[i] = val_init;
     }
 }
 // Constructeur copie de vecteur
 Vecteur::Vecteur(const Vecteur &vec){
-    dim = vec.dim;
-    elements = new float[dim];
-    for (int i = 0; i<dim; i++){
-        elements[i] = vec.elements[i];
+    this->dim = vec.dim;
+    this->elements = new float[this->dim];
+    for (int i = 0; i<this->dim; i++){
+        this->elements[i] = vec.elements[i];
+    }
+}
+
+// Destructeur
+Vecteur::~Vecteur(){  
+    if(this->dim>0){    
+        delete [] this->elements;
     }
 }
 
 // Getter - retourne la dimension
 int Vecteur::get_dim(void){
-    return dim;		
+    return this->dim;		
 }
 
 // Getter - retourne un element
 float Vecteur::get_elements(int i){
-    return elements[i];		
+    return this->elements[i];		
 }
 
 // Setter - fixe la dimension
 void Vecteur::set_dim(int dim1){
-    dim = dim1;
+    this->dim = dim1;
             
 }
 
 // Setter - fixe un element dans le vecteur
 void Vecteur::set_element(int index, float valeur){
-    elements[index] = valeur;		
+    this->elements[index] = valeur;		
 }	
 
-Vecteur  operator + (const Vecteur & operande1,const Vecteur & operande2);
-
+// Affectation
 Vecteur& Vecteur::operator = (const Vecteur & operande1){  
-    if(dim != operande1.dim){    
+    if(this->dim != operande1.dim){    
         throw ERREUR_DIM;  
     }
     else {  
-        memcpy(elements,operande1.elements,dim*sizeof(float));  
+        memcpy(elements,operande1.elements,this->dim*sizeof(float));  
         return(*this);
     }
 }
 
+// +=
 Vecteur & Vecteur::operator+= (const Vecteur & operande){  
     int i;  
-    if (dim != operande.dim){    
+    if (this->dim != operande.dim){    
         throw ERREUR_DIM;  
     } else {
-        for (i=0;i<dim;i++) elements[i]+=operande.elements[i];  
+        for (i=0;i<dim;i++) this->elements[i]+=operande.elements[i];  
         return (*this);
     }
 }
 
+// Indice
 float& Vecteur::operator[] (const int i){  
-    if (i>(dim-1) || i<0){    
+    if (i>(this->dim-1) || i<0){    
         throw ERREUR_INDICE;
     } else {
-        return(elements[i]);
+        return(this->elements[i]);
     }
+}
+
+// +
+Vecteur  operator + (const Vecteur & operande1,const Vecteur & operande2){  
+    Vecteur temp_vect(operande1);  
+    temp_vect+=operande2;
+    return(temp_vect);
 }
