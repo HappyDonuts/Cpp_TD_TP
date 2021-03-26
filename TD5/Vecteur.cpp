@@ -94,3 +94,11 @@ Vecteur  operator + (const Vecteur & operande1,const Vecteur & operande2){
     temp_vect+=operande2;
     return(temp_vect);
 }
+
+Vecteur multiplication(float f, Vecteur &v){
+    Vecteur temp_vect(v.get_dim());
+    for (int i = 0; i < v.get_dim(); i++){
+        temp_vect[i] = f*v[i];
+    }
+    return temp_vect;
+}

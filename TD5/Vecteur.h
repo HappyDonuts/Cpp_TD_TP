@@ -33,6 +33,9 @@ class Vecteur {
         Vecteur & operator= ( const Vecteur & operande1);  
         Vecteur & operator+= (const Vecteur & operande);  
         float & operator[] (const int i);
+
+		// Fonction multiplication friend
+		friend Vecteur multiplication(float f, Vecteur &v);
 		
 };
 
