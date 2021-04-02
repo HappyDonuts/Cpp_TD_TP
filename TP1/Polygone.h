@@ -1,5 +1,5 @@
-#ifndef FIGURE_H
-#define FIGURE_H
+#ifndef POLYGONE_H
+#define POLYGONE_H
 #include "Figure.h"
 
 class Polygone : public Figure {
@@ -8,7 +8,7 @@ class Polygone : public Figure {
 
     public :
         
-        Polygone(int nbCotes);
+        Polygone(int nbCotes, string couleur);
         void afficherCaracteristiques();
         int getCotes();
     

@@ -2,7 +2,7 @@
 #include "Polygone.h"
 using namespace std;
 
-Polygone::Polygone(int nbCotes) : Figure() {
+Polygone::Polygone(int nbCotes, string couleur) : Figure(couleur) {
     this->nbCotes = nbCotes;
 }
 

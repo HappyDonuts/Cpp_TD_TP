@@ -2,7 +2,7 @@
 #include <iostream>
 using namespace std;
 
-Rectangle::Rectangle(int longueur, int largeur) : Polygone(4){ 
+Rectangle::Rectangle(int longueur, int largeur, string couleur) : Polygone(4, couleur){ 
     this->longueur = longueur;
     this->largeur = largeur;
 }
@@ -23,4 +23,5 @@ void Rectangle::afficherCaracteristiques(){
     cout << "Polygone - Rectangle" << endl;
     cout << "Largeur : " << getLargeur() << endl;
     cout << "Longueur : " << getLongueur() << endl;
+    cout << "Couleur : " << this->getCouleur() << endl;
 }

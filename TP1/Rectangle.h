@@ -1,5 +1,5 @@
-#ifndef POLYGONE_H
-#define POLYGONE_H
+#ifndef RECTANGLE_H
+#define RECTANGLE_H
 #include "Polygone.h"
 
 class Rectangle : public Polygone {
@@ -8,7 +8,7 @@ class Rectangle : public Polygone {
         int largeur;
 
     public :
-        Rectangle(int longueur, int largeur);
+        Rectangle(int longueur, int largeur, string couleur);
         int perimetre();
         void afficherCaracteristiques();
         int getLargeur();

@@ -1,15 +1,26 @@
 #include <iostream>
 #include "Rectangle.h"
 #include "Carre.h"
+#include "TriangleEquilateral.h"
+#include "Cercle.h"
 using namespace std;
 
 int main(){
-    Rectangle rectangle_1(2, 4);
-    Carre carre_1(3);
+    Rectangle rectangle_1(2, 4, "red");
+    Carre carre_1(3, "blue");
+    TriangleEquilateral triangle_eq_1(5, "green");
+    Cercle cercle_1(1.6, "yellow");
 
-    rectangle_1.afficherCaracteristiques();
-    cout << "Perimetre de rectangle_1 : " << rectangle_1.perimetre() << endl;
+    Figure *tab [3];
+    
+    tab[0] = &rectangle_1;
+    tab[1] = &carre_1;          // Method 1 : addresse de carre_1
+    tab[2] = new Cercle(4.3, "purple");   // Method 2 : nouveau cercle
 
-    carre_1.afficherCaracteristiques();
-    cout << "Perimetre de carre_1 : " << carre_1.perimetre() << endl;
+    for (int i=0; i<3; i++){
+        tab[i]->afficherCaracteristiques();
+        tab[i]->perimetre();
+    }
+    cout << "N de figures : " << Figure::nFigures;
 }
+
