@@ -3,6 +3,7 @@
 #include "Carre.h"
 #include "TriangleEquilateral.h"
 #include "Cercle.h"
+#include "Cellule.h"
 using namespace std;
 
 int main(){
