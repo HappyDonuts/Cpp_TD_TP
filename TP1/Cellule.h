@@ -3,18 +3,20 @@
 
 #include <list>
 
-template <typename T> class Cellule {
-    private:
-        T cell;
-        T *next_cell;
-    public:
-        Cellule(T cell, T *next_cell);
+template <typename T> class Cellule{
+public:
+	T data;
+	Cellule* next_cell;
+
+public:
+	Cellule(T data, Cellule* next_cell);
 };
 
 //#include "Cellule.cpp"
 template <typename T>
-Cellule<T>::Cellule(T cell, T *next_cell){
-    this->cell = cell;
-    this->next_cell = next_cell;
+Cellule<T>::Cellule(T data, Cellule* next_cell) {
+	this->data = data;
+	this->next_cell = next_cell;
 }
+
 #endif

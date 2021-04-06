@@ -3,7 +3,7 @@
 #include "Carre.h"
 #include "TriangleEquilateral.h"
 #include "Cercle.h"
-#include "Cellule.h"
+#include "File.h"
 using namespace std;
 
 int main(){
@@ -22,6 +22,11 @@ int main(){
         tab[i]->afficherCaracteristiques();
         tab[i]->perimetre();
     }
-    cout << "N de figures : " << Figure::nFigures;
+    cout << "N de figures : " << Figure::nFigures << endl;
+
+    File<Figure*> figure_file;
+    figure_file.add_cell(&rectangle_1);
+    figure_file.add_cell(&carre_1);
+    figure_file.display();
 }
 
